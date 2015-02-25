@@ -11,35 +11,35 @@
     // Closing an existing connection
     closeConnection: function (name) {
       if (name !== undefined) {
-        this.connections[name].disconnect();
+        connections[name].disconnect();
       } else { throw new Error('Connection name required.'); }
     },
 
     // Getting an already established connection
     getConnection: function (name) {
       if (name !== undefined) {
-        return this.connections[name];
+        return connections[name];
       } else { throw new Error('Connection name required.'); }
     },
 
     // Creating and returning a new connection
     createConnection: function (name, uri) {
       if (name !== undefined) {
-        this.connections[name] = this.createConnection(uri || 'mongodb://localhost/test');
-        return this.connections[name];
+        connections[name] = createConnection(uri || 'mongodb://localhost/test');
+        return connections[name];
       } else { throw new Error('Connection name required.'); }
     },
 
     // List all current connections
     listAllConnections: function () {
-      return this.connections;
+      return connections;
     },
 
     // Close all current connections
     closeAllConnections: function () {
       try {
-        for (var connection in this.connections) {
-          this.connections[connection].base.disconnect();
+        for (var connection in connections) {
+          connections[connection].base.disconnect();
         }
         return true;
       } catch (err) { throw new Error('Unable to close connections: ' + err); }
