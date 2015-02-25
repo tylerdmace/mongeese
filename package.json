@@ -1,0 +1,26 @@
+{
+  "name": "mongeese",
+  "version": "0.0.1",
+  "description": "A connection manager for Mongoose",
+  "main": "mongeese.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tylerdmace/mongeese"
+  },
+  "keywords": [
+    "Mongoose",
+    "MongoDB",
+    "connection",
+    "manager",
+    "database"
+  ],
+  "author": "Tyler Mace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tylerdmace/mongeese/issues"
+  },
+  "homepage": "https://github.com/tylerdmace/mongeese"
+}
