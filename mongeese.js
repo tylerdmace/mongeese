@@ -43,6 +43,6 @@
         }
         return true;
       } catch (err) { throw new Error('Unable to close connections: ' + err); }
-    };
+    }
   };
 }).call(this);
