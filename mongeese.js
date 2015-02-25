@@ -11,7 +11,7 @@
     // Closing an existing connection
     closeConnection: function (name) {
       if (name !== undefined) {
-        this.connections[name].disconnect();
+        this.connections[name].base.disconnect();
       } else { throw new Error('Connection name required.'); }
     },
 
