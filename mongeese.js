@@ -25,7 +25,7 @@
     // Creating and returning a new connection
     createConnection: function (name, uri) {
       if (name !== undefined) {
-        this.connections[name] = this.createConnection(uri || 'mongodb://localhost/test');
+        this.connections[name] = mongoose.createConnection(uri || 'mongodb://localhost/test');
         return this.connections[name];
       } else { throw new Error('Connection name required.'); }
     },
