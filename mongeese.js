@@ -6,21 +6,21 @@
 
   module.exports = mongeese = {
     // Our list of current connections
-    connections: {};
+    connections: {},
 
     // Closing an existing connection
     closeConnection: function (name) {
       if (name !== undefined) {
         this.connections[name].disconnect();
       } else { throw new Error('Connection name required.'); }
-    };
+    },
 
     // Getting an already established connection
     getConnection: function (name) {
       if (name !== undefined) {
         return this.connections[name];
       } else { throw new Error('Connection name required.'); }
-    };
+    },
 
     // Creating and returning a new connection
     createConnection: function (name, uri) {
@@ -28,12 +28,12 @@
         this.connections[name] = this.createConnection(uri || 'mongodb://localhost/test');
         return this.connections[name];
       } else { throw new Error('Connection name required.'); }
-    };
+    },
 
     // List all current connections
     listAllConnections: function () {
       return this.connections;
-    };
+    },
 
     // Close all current connections
     closeAllConnections: function () {

@@ -1,6 +1,6 @@
 {
   "name": "mongeese",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A connection manager for Mongoose",
   "main": "mongeese.js",
   "scripts": {
