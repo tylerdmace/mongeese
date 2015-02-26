@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    mongeese;
+mongeese;
 
 module.exports = mongeese = {
   // Our list of current connections
@@ -14,10 +14,22 @@ module.exports = mongeese = {
     } else { throw new Error('Connection name required.'); }
   },
 
+  // Get all current connections
+  getAllConnections: function () {
+    return mongeese.connections;
+  },
+
   // Getting an already established connection
   getConnection: function (name) {
     if (name !== undefined) {
       return mongeese.connections[name];
+    } else { throw new Error('Connection name required.'); }
+  },
+
+  // Check for connection existence
+  connectionExists: function (name) {
+    if (name !== undefined) {
+      return mongeese.connections[name] != null;
     } else { throw new Error('Connection name required.'); }
   },
 
@@ -29,15 +41,10 @@ module.exports = mongeese = {
     } else { throw new Error('Connection name required.'); }
   },
 
-  // List all current connections
-  listAllConnections: function () {
-    return mongeese.connections;
-  },
-
   // Close all current connections
   closeAllConnections: function () {
     try {
-      for (var connection in this.connections) {
+      for (var connection in mongoose.connections) {
         mongeese.connections[connection].base.disconnect();
       }
       return true;
