@@ -41,6 +41,16 @@ module.exports = mongeese = {
     } else { throw new Error('Connection name required.'); }
   },
 
+
+  // Remove connection from pool
+  removeConnection: function (name) {
+    if (name !== undefined) {
+      if (delete mongeese.connections[name]) {
+        return true;
+      } else { return false; }
+    } else { throw new Error('Connection name required.'); }
+  },
+
   // Close all current connections
   closeAllConnections: function () {
     try {
