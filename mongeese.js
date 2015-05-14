@@ -34,9 +34,9 @@ module.exports = mongeese = {
   },
 
   // Creating and returning a new connection
-  createConnection: function (name, uri) {
+  createConnection: function (name, uri, options) {
     if (name !== undefined) {
-      mongeese.connections[name] = mongoose.createConnection(uri || 'mongodb://localhost/test');
+      mongeese.connections[name] = mongoose.createConnection(uri || 'mongodb://localhost/test', options || {});
       return mongeese.connections[name];
     } else { throw new Error('Connection name required.'); }
   },
