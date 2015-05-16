@@ -37,6 +37,9 @@ module.exports = mongeese = {
   createConnection: function (name, uri, options) {
     if (name !== undefined) {
       mongeese.connections[name] = mongoose.createConnection(uri || 'mongodb://localhost/test', options || {});
+      mongeese.connections[name].on('error', function(err){
+        console.log('Could not connect to uri:', uri);
+      });
       return mongeese.connections[name];
     } else { throw new Error('Connection name required.'); }
   },
