@@ -2,7 +2,7 @@
 A connection manager for Mongoose
 
 ## Installation
-The easiest way mongeese is through `npm`:
+The easiest way to install mongeese is through `npm`:
 
 ```Bash
 $ npm i mongeese
