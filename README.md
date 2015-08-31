@@ -5,7 +5,7 @@ A connection manager for Mongoose
 The easiest way to install mongeese is through `npm`:
 
 ```Bash
-$ npm i mongeese
+$ npm i tylerdmace/mongeese
 ```
 
 ## API
