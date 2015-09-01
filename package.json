@@ -1,6 +1,6 @@
 {
   "name": "mongeese",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "A connection manager for Mongoose",
   "main": "mongeese.js",
   "repository": {
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/tylerdmace/mongeese/issues"
   },
-  "homepage": "https://github.com/tylerdmace/mongeese"
+  "homepage": "https://github.com/tylerdmace/mongeese",
+  "scripts": {
+    "test": "true"
+  }
 }
