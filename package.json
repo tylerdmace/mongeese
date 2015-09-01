@@ -1,6 +1,6 @@
 {
   "name": "mongeese",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "A connection manager for Mongoose",
   "main": "mongeese.js",
   "repository": {
