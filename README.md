@@ -1,4 +1,4 @@
-# mongeese
+# mongeese [![Build Status](https://travis-ci.org/tylerdmace/mongeese.svg?branch=master)](https://travis-ci.org/tylerdmace/mongeese)
 A connection manager for Mongoose
 
 ## Installation
