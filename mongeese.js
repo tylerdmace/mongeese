@@ -3,6 +3,8 @@
 var mongoose = require('mongoose'),
     mongeese;
     
+var connections = {};
+    
 function getObjectSize (obj) {    
   var size = 0;
     
@@ -13,19 +15,17 @@ function getObjectSize (obj) {
   return size;
 }
 
-module.exports = mongeese = {
-  connections: {},
-  
+module.exports = mongeese = {  
   connectionExists: function (name) {
     if (name !== undefined) {
-      return mongeese.connections[name] != null;
+      return connections[name] != null;
     } else { throw new Error('Connection name required.'); }
   },
   
   closeAllConnections: function () {
     try {
-      for (var connection in mongeese.connections) {
-        mongeese.connections[connection].base.disconnect();
+      for (var connection in connections) {
+        connections[connection].base.disconnect();
       }
     } catch (err) { throw new Error('Unable to close connections: ' + err); }
   },
@@ -33,43 +33,43 @@ module.exports = mongeese = {
   closeConnection: function (name) {  
     if (name !== undefined) {
       try {
-        mongeese.connections[name].base.disconnect();
+        connections[name].base.disconnect();
       } catch (err) { throw new Error('Unable to close connection: ' + err); }
     } else { throw new Error('Connection name required.'); }
   },
   
   createConnection: function (name, uri, options) {
     if (name !== undefined) {
-      mongeese.connections[name] = mongoose.createConnection(uri || 'mongodb://localhost/test', options || {});
-      return mongeese.connections[name];
+      connections[name] = mongoose.createConnection(uri || 'mongodb://localhost/test', options || {});
+      return connections[name];
     } else { throw new Error('Connection name required.'); }
   },
   
   getAllConnections: function () {
-    return mongeese.connections;
+    return connections;
   },
   
   getConnection: function (name) {
     if (name !== undefined) {
-      return mongeese.connections[name];
+      return connections[name];
     } else { throw new Error('Connection name required.'); }
   },
   
   getConnectionCount: function () {
-    return getObjectSize(mongeese.connections);
+    return getObjectSize(connections);
   },
   
   removeAllConnections: function () {
     try {
-      for (var connection in mongeese.connections) {
-        delete mongeese.connections[connection];
+      for (var connection in connections) {
+        delete connections[connection];
       }
     } catch (err) { throw new Error('Unable to remove connections: ' + err); }
   },
 
   removeConnection: function (name) {
     if (name !== undefined) {
-      return (delete mongeese.connections[name]) ? true : false;
+      return (delete connections[name]) ? true : false;
     } else { throw new Error('Connection name required.'); }
   }
 };
